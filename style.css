@@ -73,6 +73,15 @@ h1 {
   margin-inline: 10px;
 }
 
+.timeContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
 /* Button */
 button {
   width: 100px;
@@ -98,31 +107,8 @@ button:focus {
   color: black;
 }
 
-#start {
-  width: 100px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: white 2px solid;
-  border-radius: 4px;
-}
+.play.reset {}
 
-#start:hover {
-  border: red 2px solid;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.fas {
-  margin: auto;
-
-  color: white;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-
-fas:hover {}
 
 
 /* Media Query: Large Smartphone (Vertical) */
@@ -139,5 +125,9 @@ fas:hover {}
 
   h1 {
     font-size: 6rem;
+  }
+
+  .timeContainer {
+    flex-direction: column;
   }
 }
