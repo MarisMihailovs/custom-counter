@@ -38,8 +38,6 @@ video {
   position: fixed;
   left: 0;
   top: 0;
-
-
 }
 
 
@@ -68,10 +66,6 @@ h1 {
   flex-wrap: wrap;
 }
 
-.timeSelector button {
-  font-family: 'Orbitron', sans-serif;
-  margin-inline: 10px;
-}
 
 .timeContainer {
   display: flex;
@@ -87,8 +81,9 @@ button {
   width: 100px;
   height: 40px;
   border-radius: 4px;
-  margin-top: 15px;
+  margin: 10px;
   border: 2px solid white;
+  font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.2);
   color: white;
@@ -107,7 +102,22 @@ button:focus {
   color: black;
 }
 
-.play.reset {}
+button.start:focus {
+  border: 2px solid blue;
+  color: blue;
+}
+
+button.reset:focus {
+  border: 2px solid red;
+  color: red;
+}
+
+.timeControl {
+  display: flex;
+  flex-direction: row;
+}
+
+
 
 
 
