@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Countdown</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Script -->
-    <script src="script.js"></script>
+    <!-- video background -->
+    <video class="video-background" loop muted autoplay>
+        <source src="Waves - 71122.mp4">
+        </source>
+    </video>
+    <div class="video-overlay">
+        <div class="timer">
+            <h1>00:00</h1>
+            <div class="timeSelector">
+
+
+                <button id="1min">1:00</button>
+                <button id="3min">3:00</button>
+                <button id="5min">5:00</button>
+                <button id="10min">10:00</button>
+                <button id="15min">15:00</button>
+                <button id="30min">30:00</button>
+                <button id="60min">60:00</button>
+            </div>
+            <div>
+                <button id="start">start</button>
+            </div>
+        </div>
+        <!-- Script -->
+        <script src="script.js"></script>
 </body>
+
 </html>

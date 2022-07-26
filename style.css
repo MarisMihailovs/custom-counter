@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 
 html {
   box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -10,6 +12,7 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
+  background-color: black;
 
 }
 
@@ -18,6 +21,9 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
+  width: 100vw;
+  height: auto;
+  filter: blur(4px) opacity(0.4);
 
 }
 
@@ -33,141 +39,80 @@ video {
   left: 0;
   top: 0;
 
+
 }
 
-/* Container */
-.container {
-  min-width: 580px;
-  min-height: 304px;
-  color: black;
-  margin: 0 auto;
-  padding: 25px 50px;
-  border-radius: 5px;
-  z-index: 2;
+
+.timer {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-
-}
-
-.input-container {
-  position: relative;
-  top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 h1 {
-  font-size: 35px;
+  font-size: 15rem;
   text-align: center;
   margin-top: 0;
   margin-bottom: 10px;
+  color: white;
 }
 
-/* Form */
-.form {
-  width: 480px;
+/* time selector */
+.timeSelector {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-label {
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-input {
-  width: 95%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background: #fff;
-  outline: none;
-
+.timeSelector button {
+  font-family: 'Orbitron', sans-serif;
+  margin-inline: 10px;
 }
 
 /* Button */
 button {
-  width: 100%;
+  width: 100px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 4px;
   margin-top: 15px;
-  border: none;
+  border: 2px solid white;
   text-transform: uppercase;
-  background: #006959;
+  background: rgba(0, 0, 0, 0.2);
+
   color: white;
   cursor: pointer;
-  outline: none;
+  outline: white;
+  transition-duration: 0.4s;
+
 }
 
-
-
-/* Countdown */
-ul {
-  margin-left: -45px;
+button:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-li {
-
-  font-size: 30px;
-  list-style-type: none;
-  padding: 10px;
-  text-transform: uppercase;
-}
-
-li span {
-  display: block;
-  font-size: 80px;
-  text-align: center;
-}
-
-/* Complete */
-.complete {
-  position: relative;
-  top: 60px;
+button:focus {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .video-background {
-
+    height: 100vh;
+    width: 100vw;
   }
-  
-  video {
 
+  video {
+    object-fit: cover;
     margin-top: -1px;
   }
 
-  .container {
-
-    min-height: 245px;
-    padding: 20px;
-    margin: 10px;
-  }
-
-  .input-container {
-    top: unset;
-  }
-
-  .countdown {
-    position: relative;
-    top: 10px;
-  }
-
-  .form {
-    width: unset;
-  }
-
-  input {
-    width: 93%;
-  }
-
   h1 {
-    font-size: 20px;
-  }
-
-  li {
-    font-size: 15px;
-  }
-
-  li span {
-    font-size: 40px;
+    font-size: 6rem;
   }
 }
