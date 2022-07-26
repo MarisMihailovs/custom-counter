@@ -1,6 +1,6 @@
-const startBtn = document.getElementById('start');
+
 const elem = document.documentElement;
-let state = startBtn.textContent;
+
 
 /* View in fullscreen */
 function openFullscreen() {
@@ -25,17 +25,10 @@ function closeFullscreen() {
 }
 
 function runTimer() {
-    console.log(state);
-    if (state === "start") {
-        startBtn.textContent = "pause";
-        state = "pause";
-    } else {
-        startBtn.textContent = "start";
-        state = "start";
-    }
+
 
 }
 
-startBtn.addEventListener('click', runTimer);
+
 
 

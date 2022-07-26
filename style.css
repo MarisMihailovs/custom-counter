@@ -82,7 +82,6 @@ button {
   border: 2px solid white;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.2);
-
   color: white;
   cursor: pointer;
   outline: white;
@@ -98,6 +97,32 @@ button:focus {
   background: rgba(255, 255, 255, 0.8);
   color: black;
 }
+
+#start {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: white 2px solid;
+  border-radius: 4px;
+}
+
+#start:hover {
+  border: red 2px solid;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.fas {
+  margin: auto;
+
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+fas:hover {}
 
 
 /* Media Query: Large Smartphone (Vertical) */
