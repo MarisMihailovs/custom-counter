@@ -13,65 +13,81 @@ const btnReset = document.getElementsByClassName('reset');
 
 
 const elem = document.documentElement;
-const time = { minutes: 0, seconds: 0 };
-let initialMinutes;
+let time = { minutes: 0, seconds: 0 };
+let initialMinutes = 0;
+let initialSeconds;
 let clockStateSeconds;
 let clockRunning = false;
 
 
-/* View in fullscreen */
-function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-    }
+// /* View in fullscreen */
+// function openFullscreen() {
+//     if (elem.requestFullscreen) {
+//         elem.requestFullscreen();
+//     } else if (elem.webkitRequestFullscreen) { /* Safari */
+//         elem.webkitRequestFullscreen();
+//     } else if (elem.msRequestFullscreen) { /* IE11 */
+//         elem.msRequestFullscreen();
+//     }
+// }
+
+// /* Close fullscreen */
+// function closeFullscreen() {
+//     if (document.exitFullscreen) {
+//         document.exitFullscreen();
+//     } else if (document.webkitExitFullscreen) { /* Safari */
+//         document.webkitExitFullscreen();
+//     } else if (document.msExitFullscreen) { /* IE11 */
+//         document.msExitFullscreen();
+//     }
+// }
+
+function displayTime(seconds) {
+    time.minutes = parseInt(seconds / 60);
+
+    if (time.minutes < 10) { time.minutes = "0" + time.minutes; }
+    if (time.seconds < 10) { time.seconds = "0" + time.seconds; }
+
+    clock.innerText = time.minutes + ':' + time.seconds;
+
 }
 
-/* Close fullscreen */
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-        document.msExitFullscreen();
-    }
-}
 
-function setTimerClock(timerValue) {
+
+
+function setTimerClock(seconds) {
     stopTimer();
-    initialMinutes = timerValue;
+    console.log('set timer min:', time.minutes)
+    console.log('set timer sec:', time.seconds);
+    initialSeconds = seconds;
+    time.seconds = seconds;
+    console.log(time.seconds);
+    time.minutes = parseInt(seconds / 60);
     btnStart[0].textContent = "Start";
-    time.minutes = timerValue;
-    time.seconds = 60;
-    if (time.minutes > 5) {
-        clock.textContent = time.minutes + ':00';
-    } else {
-        clock.textContent = '0' + time.minutes + ':00';
-    }
+    displayTime(seconds);
+
 }
 
-
+// šeit ir issue jo parreķina time.minutes pēc time.seconds = 60.
 function deductSecond() {
-    if (time.seconds < 60) {
-        time.seconds--;
-        clock.textContent = time.minutes + ":" + time.seconds;
-    } else {
-        time.minutes--;
-        time.seconds--;
-        clock.textContent = time.minutes + ":" + time.seconds;
-    }
+    time.seconds--;
+    console.log('initialsec in deduct:', initialSeconds);
+    console.log('time.seconds in deduct:', time.seconds)
+    console.log('minuts in deduct', time.minutes);
+
+    displayTime(time.seconds);
+    if (time.seconds === 0) { stopTimer() };
 }
+
 
 
 function runTimer() {
     if (clockRunning == false) {
         clockRunning = true;
-        console.log(time.minutes, time.seconds)
+
         btnStart[0].textContent = "Pause";
+
+
         if (!clockStateSeconds) {
             clockStateSeconds = setInterval(deductSecond, 1000);
         }
@@ -84,21 +100,21 @@ function runTimer() {
 
 }
 
-
 function stopTimer() {
     clearInterval(clockStateSeconds);
     clockStateSeconds = null;
+    clockRunning = false;
     btnStart[0].textContent = "Resume";
 }
 
-btnMin1.addEventListener('click', (evt) => setTimerClock(1));
-btnMin3.addEventListener('click', (evt) => setTimerClock(3));
-btnMin5.addEventListener('click', (evt) => setTimerClock(5));
-btnMin10.addEventListener('click', (evt) => setTimerClock(10));
-btnMin15.addEventListener('click', (evt) => setTimerClock(15));
-btnMin30.addEventListener('click', (evt) => setTimerClock(30));
-btnMin45.addEventListener('click', (evt) => setTimerClock(45));
-btnMin60.addEventListener('click', (evt) => setTimerClock(60));
+btnMin1.addEventListener('click', (evt) => setTimerClock(60));
+btnMin3.addEventListener('click', (evt) => setTimerClock(180));
+btnMin5.addEventListener('click', (evt) => setTimerClock(300));
+btnMin10.addEventListener('click', (evt) => setTimerClock(600));
+btnMin15.addEventListener('click', (evt) => setTimerClock(900));
+btnMin30.addEventListener('click', (evt) => setTimerClock(1800));
+btnMin45.addEventListener('click', (evt) => setTimerClock(2700));
+btnMin60.addEventListener('click', (evt) => setTimerClock(3600));
 
 btnStart[0].addEventListener('click', runTimer);
-btnReset[0].addEventListener('click', (evt) => setTimerClock(initialMinutes));
+btnReset[0].addEventListener('click', (evt) => setTimerClock(initialSeconds));
