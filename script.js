@@ -14,8 +14,10 @@ const btnReset = document.getElementsByClassName('reset');
 
 const elem = document.documentElement;
 const time = { minutes: 0, seconds: 0 };
+let initialMinutes;
 let clockStateSeconds;
-let clockstateMinutes;
+let clockRunning = false;
+
 
 /* View in fullscreen */
 function openFullscreen() {
@@ -40,7 +42,9 @@ function closeFullscreen() {
 }
 
 function setTimerClock(timerValue) {
-
+    stopTimer();
+    initialMinutes = timerValue;
+    btnStart[0].textContent = "Start";
     time.minutes = timerValue;
     time.seconds = 60;
     if (time.minutes > 5) {
@@ -52,38 +56,39 @@ function setTimerClock(timerValue) {
 
 
 function deductSecond() {
-    time.seconds--;
-    clock.textContent = time.minutes + ":" + time.seconds;
-}
-
-function deductMinute() {
-    time.minutes--;
-    clock.textContent = time.minutes + ":" + time.seconds;
-}
-
-function changeTimerSeconds() {
-    deductSecond();
-}
-
-function changeTimerMinutes() {
-    deductMinute();
-}
-
-function runTimer() {
-    console.log(time.minutes, time.seconds)
-    if (!clockStateSeconds && !clockstateMinutes) {
+    if (time.seconds < 60) {
         time.seconds--;
-        clockStateSeconds = setInterval(changeTimerSeconds, 1000);
+        clock.textContent = time.minutes + ":" + time.seconds;
+    } else {
         time.minutes--;
-        clockstateMinutes = setInterval(changeTimerMinutes, 60000);
+        time.seconds--;
+        clock.textContent = time.minutes + ":" + time.seconds;
     }
 }
 
+
+function runTimer() {
+    if (clockRunning == false) {
+        clockRunning = true;
+        console.log(time.minutes, time.seconds)
+        btnStart[0].textContent = "Pause";
+        if (!clockStateSeconds) {
+            clockStateSeconds = setInterval(deductSecond, 1000);
+        }
+    } else {
+        stopTimer()
+        btnStart[0].textContent = "Resume";
+        clockRunning = false;
+
+    }
+
+}
+
+
 function stopTimer() {
     clearInterval(clockStateSeconds);
-    clearInterval(clockstateMinutes);
     clockStateSeconds = null;
-    clockstateMinutes = null;
+    btnStart[0].textContent = "Resume";
 }
 
 btnMin1.addEventListener('click', (evt) => setTimerClock(1));
@@ -96,4 +101,4 @@ btnMin45.addEventListener('click', (evt) => setTimerClock(45));
 btnMin60.addEventListener('click', (evt) => setTimerClock(60));
 
 btnStart[0].addEventListener('click', runTimer);
-btnReset[0].addEventListener('click', stopTimer);
+btnReset[0].addEventListener('click', (evt) => setTimerClock(initialMinutes));
