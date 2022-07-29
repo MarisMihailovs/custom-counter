@@ -103,8 +103,8 @@ button:focus {
 }
 
 button.start:focus {
-  border: 2px solid blue;
-  color: blue;
+  border: 2px solid rgb(115, 115, 166);
+  color: rgb(115, 115, 166);
 }
 
 button.reset:focus {
@@ -112,12 +112,24 @@ button.reset:focus {
   color: red;
 }
 
+.inactive {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .timeControl {
   display: flex;
   flex-direction: row;
 }
 
+#minutes {
+  width: 15rem;
+}
 
+#seconds {
+  width: 15rem;
+}
 
 
 

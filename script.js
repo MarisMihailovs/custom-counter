@@ -1,4 +1,6 @@
 const clock = document.getElementById('clock');
+const clockMinutes = document.querySelector('#minutes');
+const clockSeconds = document.querySelector('#seconds');
 const btnMin1 = document.getElementById('1min');
 const btnMin3 = document.getElementById('3min');
 const btnMin5 = document.getElementById('5min');
@@ -11,110 +13,96 @@ const btnStart = document.getElementsByClassName('start');
 const btnReset = document.getElementsByClassName('reset');
 
 
-
 const elem = document.documentElement;
-let time = { minutes: 0, seconds: 0 };
-let initialMinutes = 0;
-let initialSeconds;
-let clockStateSeconds;
-let clockRunning = false;
+let time = { minutes: 0, seconds: 0 }; /* updating spans and storing total min and sec */
+let oneMinute = 60; /** serving as counter for min*/
+let initialSeconds; /** storing total sec and serving to reset */
+let decreaseSeconds; /** variable to store setInterval id and stopTimer */
 
-
-// /* View in fullscreen */
-// function openFullscreen() {
-//     if (elem.requestFullscreen) {
-//         elem.requestFullscreen();
-//     } else if (elem.webkitRequestFullscreen) { /* Safari */
-//         elem.webkitRequestFullscreen();
-//     } else if (elem.msRequestFullscreen) { /* IE11 */
-//         elem.msRequestFullscreen();
-//     }
-// }
-
-// /* Close fullscreen */
-// function closeFullscreen() {
-//     if (document.exitFullscreen) {
-//         document.exitFullscreen();
-//     } else if (document.webkitExitFullscreen) { /* Safari */
-//         document.webkitExitFullscreen();
-//     } else if (document.msExitFullscreen) { /* IE11 */
-//         document.msExitFullscreen();
-//     }
-// }
-
-function displayTime(seconds) {
-    time.minutes = parseInt(seconds / 60);
-
-    if (time.minutes < 10) { time.minutes = "0" + time.minutes; }
-    if (time.seconds < 10) { time.seconds = "0" + time.seconds; }
-
-    clock.innerText = time.minutes + ':' + time.seconds;
-
+function stopTimer(timer) {
+    clearInterval(timer);
 }
 
+function updateClock() {
 
+    clockSeconds.textContent = oneMinute;
+    clockMinutes.textContent = time.minutes;
 
+    if (oneMinute === 0 && time.seconds === 0) {
+        clockMinutes.textContent = "00";
+        clockSeconds.textContent = ":00";
+    }
+    if (oneMinute === 60) {
+        clockSeconds.textContent = "00";
+    }
 
-function setTimerClock(seconds) {
-    stopTimer();
-    console.log('set timer min:', time.minutes)
-    console.log('set timer sec:', time.seconds);
-    initialSeconds = seconds;
-    time.seconds = seconds;
-    console.log(time.seconds);
-    time.minutes = parseInt(seconds / 60);
-    btnStart[0].textContent = "Start";
-    displayTime(seconds);
+    if (oneMinute < 10) {
+        clockSeconds.textContent = "0" + oneMinute;
+    }
 
-}
-
-// šeit ir issue jo parreķina time.minutes pēc time.seconds = 60.
-function deductSecond() {
-    time.seconds--;
-    console.log('initialsec in deduct:', initialSeconds);
-    console.log('time.seconds in deduct:', time.seconds)
-    console.log('minuts in deduct', time.minutes);
-
-    displayTime(time.seconds);
-    if (time.seconds === 0) { stopTimer() };
-}
-
-
-
-function runTimer() {
-    if (clockRunning == false) {
-        clockRunning = true;
-
-        btnStart[0].textContent = "Pause";
-
-
-        if (!clockStateSeconds) {
-            clockStateSeconds = setInterval(deductSecond, 1000);
-        }
-    } else {
-        stopTimer()
-        btnStart[0].textContent = "Resume";
-        clockRunning = false;
-
+    if (time.minutes < 10) {
+        clockMinutes.textContent = "0" + time.minutes;
     }
 
 }
 
-function stopTimer() {
-    clearInterval(clockStateSeconds);
-    clockStateSeconds = null;
-    clockRunning = false;
-    btnStart[0].textContent = "Resume";
+function deductMinutes() {
+
+    if (oneMinute === 0 || oneMinute === 60) { time.minutes--; }
+
 }
 
-btnMin1.addEventListener('click', (evt) => setTimerClock(60));
-btnMin3.addEventListener('click', (evt) => setTimerClock(180));
-btnMin5.addEventListener('click', (evt) => setTimerClock(300));
-btnMin10.addEventListener('click', (evt) => setTimerClock(600));
-btnMin15.addEventListener('click', (evt) => setTimerClock(900));
-btnMin30.addEventListener('click', (evt) => setTimerClock(1800));
-btnMin45.addEventListener('click', (evt) => setTimerClock(2700));
-btnMin60.addEventListener('click', (evt) => setTimerClock(3600));
+function deductSeconds() {
+    deductMinutes();
 
-btnStart[0].addEventListener('click', runTimer);
-btnReset[0].addEventListener('click', (evt) => setTimerClock(initialSeconds));
+    decreaseSeconds = setInterval(function () {
+
+        time.seconds--;
+        oneMinute--;
+
+        updateClock();
+
+        deductMinutes();
+        if (oneMinute === 0) { oneMinute = 60; }
+        if (time.seconds === 0) {
+            oneMinute = 0;
+            stopTimer(decreaseSeconds);
+        }
+        if (time.seconds !== 0) {
+            btnStart[0].disabled = true;
+        }
+    }, 1000)
+}
+
+function setTimerClock(sec) {
+    stopTimer(decreaseSeconds);
+    btnStart[0].classList.remove('inactive');
+    btnReset[0].classList.add('inactive');
+    btnStart[0].disabled = false;
+    btnReset[0].disabled = true;
+
+    initialSeconds = sec;
+    oneMinute = 60;
+    time.minutes = sec / 60;
+    time.seconds = sec;
+    updateClock();
+}
+
+function changeState(btn1, btn2) {
+    btn1.classList.toggle('inactive');
+    btn2.classList.toggle('inactive');
+    btn2.disabled = false;
+}
+
+btnMin1.addEventListener('click', () => setTimerClock(60));
+btnMin3.addEventListener('click', () => setTimerClock(180));
+btnMin5.addEventListener('click', () => setTimerClock(300));
+btnMin10.addEventListener('click', () => setTimerClock(600));
+btnMin15.addEventListener('click', () => setTimerClock(900));
+btnMin30.addEventListener('click', () => setTimerClock(1800));
+btnMin45.addEventListener('click', () => setTimerClock(2700));
+btnMin60.addEventListener('click', () => setTimerClock(3600));
+
+// calling to run or resetting timer
+btnStart[0].addEventListener('click', () => { deductSeconds(), changeState(btnStart[0], btnReset[0]) });
+btnReset[0].addEventListener('click', () => setTimerClock(initialSeconds));
