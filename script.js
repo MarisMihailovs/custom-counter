@@ -91,6 +91,7 @@ function deductSeconds() {
 function setTimerClock(sec) {
     stopTimer(decreaseSeconds);
     clearInterval(timerWarning);
+    clock.classList.remove('blinktext');
     btnStart[0].classList.remove('inactive');
     btnReset[0].classList.add('inactive');
     btnStart[0].disabled = false;
