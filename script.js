@@ -1,4 +1,4 @@
-const clock = document.getElementById('clock');
+const clock = document.querySelector('.clock');
 const clockMinutes = document.querySelector('#minutes');
 const clockSeconds = document.querySelector('#seconds');
 const btnMin1 = document.getElementById('1min');
@@ -18,9 +18,20 @@ let time = { minutes: 0, seconds: 0 }; /* updating spans and storing total min a
 let oneMinute = 60; /** serving as counter for min*/
 let initialSeconds; /** storing total sec and serving to reset */
 let decreaseSeconds; /** variable to store setInterval id and stopTimer */
+let timerWarning; /** variable to store setInterval id and clear blinking text */
 
 function stopTimer(timer) {
+
     clearInterval(timer);
+
+}
+
+function warning() {
+
+    timerWarning = setInterval(() => {
+        clock.classList.toggle('blinktext');
+    }, 1000);
+
 }
 
 function updateClock() {
@@ -29,9 +40,12 @@ function updateClock() {
     clockMinutes.textContent = time.minutes;
 
     if (oneMinute === 0 && time.seconds === 0) {
+
         clockMinutes.textContent = "00";
-        clockSeconds.textContent = ":00";
+        clockSeconds.textContent = "00";
+        warning();
     }
+
     if (oneMinute === 60) {
         clockSeconds.textContent = "00";
     }
@@ -76,6 +90,7 @@ function deductSeconds() {
 
 function setTimerClock(sec) {
     stopTimer(decreaseSeconds);
+    clearInterval(timerWarning);
     btnStart[0].classList.remove('inactive');
     btnReset[0].classList.add('inactive');
     btnStart[0].disabled = false;

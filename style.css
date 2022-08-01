@@ -48,6 +48,7 @@ video {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .clock {
@@ -65,18 +66,18 @@ video {
 
 #minutes {
   float: right;
-  width: 45vw;
+  width: 40vw;
 
 }
 
 #seconds {
   float: left;
-  width: 45vw;
+  width: 40vw;
 }
 
 #separator {
-  float: center;
-  width: 1s0vw;
+  float: none;
+  width: 10vw;
 }
 
 /* time selector */
@@ -134,6 +135,10 @@ button:focus {
   flex-direction: row;
 }
 
+.blinktext {
+  color: red;
+}
+
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
@@ -164,11 +169,11 @@ button:focus {
   }
 
   .clock {
-    font-size: 8rem;
+    font-size: 10rem;
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
 
   .video-background {
     height: 100vh;
@@ -179,4 +184,9 @@ button:focus {
     object-fit: cover;
     margin-top: -1px;
   }
+
+  .clock {
+    font-size: 20rem;
+  }
+
 }
