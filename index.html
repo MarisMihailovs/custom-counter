@@ -18,7 +18,11 @@
     </video>
     <div class="video-overlay">
         <div class="timer">
-            <h1 id="clock"><span id="minutes">00</span><span>:</span><span id="seconds">00</span></h1>
+            <div class="clock">
+                <div><span id="minutes">00</span></div>
+                <div><span id="separator">:</span></div>
+                <div><span id="seconds">00</span></div>
+            </div>
             <div class="timeSelector">
                 <div class="timeContainer">
                     <button id="1min">1:00</button>
@@ -34,7 +38,7 @@
                 </div>
             </div>
             <div class="timeControl">
-                <button class="start inactive" disabled>Start</button>
+                <button class="start inactive" id="startBtn" disabled>Start</button>
                 <button class="reset inactive">Reset</button>
             </div>
             <!-- Script -->

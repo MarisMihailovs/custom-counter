@@ -50,12 +50,33 @@ video {
   justify-content: space-evenly;
 }
 
-h1 {
+.clock {
   font-size: 15rem;
   text-align: center;
   margin-top: 0;
   margin-bottom: 10px;
   color: white;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#minutes {
+  float: right;
+  width: 45vw;
+
+}
+
+#seconds {
+  float: left;
+  width: 45vw;
+}
+
+#separator {
+  float: center;
+  width: 1s0vw;
 }
 
 /* time selector */
@@ -63,7 +84,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
+
 }
 
 
@@ -102,16 +123,6 @@ button:focus {
   color: black;
 }
 
-button.start:focus {
-  border: 2px solid rgb(115, 115, 166);
-  color: rgb(115, 115, 166);
-}
-
-button.reset:focus {
-  border: 2px solid red;
-  color: red;
-}
-
 .inactive {
   border: 2px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
@@ -122,15 +133,6 @@ button.reset:focus {
   display: flex;
   flex-direction: row;
 }
-
-#minutes {
-  width: 15rem;
-}
-
-#seconds {
-  width: 15rem;
-}
-
 
 
 /* Media Query: Large Smartphone (Vertical) */
@@ -145,11 +147,36 @@ button.reset:focus {
     margin-top: -1px;
   }
 
-  h1 {
-    font-size: 6rem;
+  .clock {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width:600px) {
+  .video-background {
+    height: 100vh;
+    width: 100vw;
   }
 
-  .timeContainer {
-    flex-direction: column;
+  video {
+    object-fit: cover;
+    margin-top: -1px;
+  }
+
+  .clock {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .video-background {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  video {
+    object-fit: cover;
+    margin-top: -1px;
   }
 }

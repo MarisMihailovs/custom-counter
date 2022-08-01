@@ -104,5 +104,12 @@ btnMin45.addEventListener('click', () => setTimerClock(2700));
 btnMin60.addEventListener('click', () => setTimerClock(3600));
 
 // calling to run or resetting timer
-btnStart[0].addEventListener('click', () => { deductSeconds(), changeState(btnStart[0], btnReset[0]) });
+btnStart[0].addEventListener('click', () => { changeState(btnStart[0], btnReset[0]), deductSeconds() });
 btnReset[0].addEventListener('click', () => setTimerClock(initialSeconds));
+
+document.getElementById("startBtn").onclick = function () {
+    //disable
+    this.disabled = true;
+
+    //do some validation stuff
+}
