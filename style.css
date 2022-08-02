@@ -136,7 +136,35 @@ button:focus {
 }
 
 .blinktext {
-  color: red;
+  animation: complete 2s infinite;
+}
+
+@keyframes complete {
+  0% {
+    color: rgb(255, 255, 255);
+
+  }
+
+  25% {
+    color: rgb(247, 131, 131);
+
+  }
+
+  50% {
+    color: rgb(255, 0, 0);
+    transform: scale(1.2);
+
+  }
+
+  75% {
+    color: rgb(247, 131, 131);
+
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+
+  }
 }
 
 

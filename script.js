@@ -27,11 +27,7 @@ function stopTimer(timer) {
 }
 
 function warning() {
-
-    timerWarning = setInterval(() => {
-        clock.classList.toggle('blinktext');
-    }, 1000);
-
+    clock.classList.toggle('blinktext');
 }
 
 function updateClock() {
