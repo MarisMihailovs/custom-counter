@@ -7,8 +7,8 @@ const countdownElTitle = document.getElementById('countdown-title');
 const countdownBtn = document.getElementById('countdown-button');
 const timeElements = document.querySelectorAll('span');
 
-let countdownTitle = "";
-let countdownDate = "";
+let countdownTitle = '';
+let countdownDate = '';
 let countdownValue = Date;
 
 const second = 1000;
@@ -48,10 +48,12 @@ function updateDOM() {
 function updateCountdown(e) {
     e.preventDefault();
     countdownTitle = e.srcElement[0].value;
-    countdownDate = e.srcElement[0].value;
-    console.log(e);
+    countdownDate = e.srcElement[1].value;
+
+    console.log(countdownTitle, countdownDate);
     // get number version of current date, update DOM
     countdownValue = new Date(countdownDate).getTime();
+    console.log('countdown value', countdownValue);
     updateDOM();
 }
 
