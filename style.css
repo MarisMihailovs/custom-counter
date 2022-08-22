@@ -78,6 +78,7 @@ video {
 #separator {
   text-align: center;
   width: 10vw;
+  padding: 5px;
 }
 
 /* time selector */
@@ -181,7 +182,7 @@ button:focus {
   }
 
   .clock {
-    font-size: 6rem;
+    font-size: 5rem;
     width: 90vw;
   }
 }
