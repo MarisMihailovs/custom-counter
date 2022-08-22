@@ -57,26 +57,28 @@ video {
   margin-top: 0;
   margin-bottom: 10px;
   color: white;
-  width: 100vw;
+  width: 60vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
 #minutes {
-  float: right;
+
   width: 40vw;
 
 }
 
 #seconds {
-  float: left;
   width: 40vw;
+  text-align: left;
 }
 
 #separator {
-  float: none;
+
+  text-align: center;
   width: 10vw;
 }
 
@@ -181,7 +183,7 @@ button:focus {
   }
 
   .clock {
-    font-size: 5rem;
+    font-size: 6rem;
   }
 }
 
@@ -197,7 +199,7 @@ button:focus {
   }
 
   .clock {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 }
 
@@ -211,10 +213,6 @@ button:focus {
   video {
     object-fit: cover;
     margin-top: -1px;
-  }
-
-  .clock {
-    font-size: 20rem;
   }
 
 }
