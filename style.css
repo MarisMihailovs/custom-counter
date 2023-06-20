@@ -7,56 +7,42 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-width: 100vw;
   overflow-y: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-
+  background-color: black;
+  background-image: url(control_room.svg);
+  background-repeat: no-repeat;
 }
 
-/* Video Background */
-.video-background {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-
-}
-
-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.video-overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.35);
-
+div.logos {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 /* Container */
 .container {
-  min-width: 580px;
-  min-height: 304px;
+  min-width: 30vw;
+  min-height: 30vh;
   color: black;
   margin: 0 auto;
   padding: 25px 50px;
   border-radius: 5px;
   z-index: 2;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.input-container {
-  position: relative;
-  top: 20px;
-}
 
 h1 {
   font-size: 35px;
@@ -66,48 +52,20 @@ h1 {
 }
 
 /* Form */
-.form {
-  width: 480px;
-}
+
 
 label {
   font-weight: bold;
   margin-left: 10px;
 }
 
-input {
-  width: 95%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background: #fff;
-  outline: none;
 
-}
-
-/* Button */
-button {
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  margin-top: 15px;
-  border: none;
-  text-transform: uppercase;
-  background: #006959;
-  color: white;
-  cursor: pointer;
-  outline: none;
-}
-
-button:hover {
-  filter: brightness(110%);
-}
 
 
 /* Countdown */
+
 ul {
-  margin-left: -45px;
+  padding: 0;
 }
 
 li {
@@ -116,6 +74,7 @@ li {
   list-style-type: none;
   padding: 10px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 li span {
@@ -164,22 +123,13 @@ li span {
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
-  .video-background {
-    height: 100vh;
-    width: 100vw;
 
-  }
-
-  video {
-    object-fit: cover;
-    object-position: 70%;
-    margin-top: -1px;
-  }
 
   .container {
+
     min-width: unset;
-    width: 95vw;
-    min-height: 245px;
+
+    min-height: 30vh;
     padding: 20px;
     margin: 10px;
   }
@@ -193,23 +143,20 @@ li span {
     top: 10px;
   }
 
-  .form {
-    width: unset;
-  }
-
-  input {
-    width: 93%;
-  }
 
   h1 {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   li {
+    margin: auto;
     font-size: 12px;
+    text-align: center;
+    align-items: center;
   }
 
   li span {
-    font-size: 20px;
+    font-size: 16px;
+
   }
 }

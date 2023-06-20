@@ -9,42 +9,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body cz-shortcut-listen="true">
-    <video src="time.mp4" class="video-background" loop muted autoplay></video>
-    <div class="video-overlay"></div>
+<body>
+    <div class="logos"><img src="Samsung_logo.svg" alt=""><img src="signtech_logo.svg" alt=""></div>
     <!-- container -->
     <div class="container">
-        <!-- input -->
-        <div class="input-container" id="input-container">
-            <h1>Create a custom countdown!</h1>
-            <form action="" class="form" id="countdownForm">
-                <label for="title">Title</label>
-                <input type="text" id="title" placeholder="what are you counting down to">
-                <label for="date-picker">Select a Date</label>
-                <input type="date" id="date-picker">
-                <button type="submit">Submit</button>
-            </form>
 
-        </div>
         <!-- countdown -->
-        <div class="countdown" id="countdown" hidden>
-            <h1 id="countdown-title"></h1>
+        <div class="countdown" id="countdown">
+            <h1 id="countdown-title">Samsung / Signtech Control Room solutions day</h1>
             <ul>
                 <li><span></span>Days</li>
                 <li><span></span>Hours</li>
                 <li><span></span>Minutes</li>
                 <li><span></span>Seconds</li>
             </ul>
-            <button id="countdown-button">Reset</button>
-        </div>
-        <!-- Complete -->
-        <div class="complete" id="complete" hidden>
-            <h1 class="complete-title">Countdown complete!</h1>
-            <h1 id="complete-info"></h1>
-            <button id="complete-button">New countdown</button>
-        </div>
+
+        </div> <add-to-calendar-button name="Control room solution day" description="Add to your calendar"
+            startDate="2023-10-25" startTime="09:00" endDate="2023-10-25" endTime="17:30" timeZone="Europe/Riga"
+            location="ATTA CENTRE, Krasta iela 60, Latgales priekšpilsēta, Rīga, LV-1003, Latvija"
+            options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'" listStyle="overlay"
+            buttonStyle="3d" size="5">
+            <!-- Complete -->
+            <div class="complete" id="complete" hidden>
+                <h1 class="complete-title">Countdown complete!</h1>
+
+            </div>
     </div>
     <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <script src="script.js"></script>
 </body>
 
