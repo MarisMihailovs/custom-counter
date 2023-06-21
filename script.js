@@ -1,19 +1,14 @@
 
-const countdownForm = document.getElementById('countdownForm');
-
-
-const countdownEl = document.getElementById('countdown');
-const countdownElTitle = document.getElementById('countdown-title');
-
+const clock = document.querySelector('.counter');
+const regBtn = document.querySelector('.Register');
 const timeElements = document.querySelectorAll('span');
+const timeElementsBtn = document.querySelector('add-to-calendar-button');
 
 const completeEl = document.getElementById('complete');
-const completeElInfo = document.getElementById('complete-info');
+const completeElInfo = document.querySelector('.complete-title');
 
-
-let countdownTitle = '';
 let countdownDate = '';
-let countdownValue = new Date("Wed Oct 25 2023 09:00:00 GMT+0300 (Eastern European Summer Time)");
+let countdownValue = new Date("Wed Jun 21 2023 16:59:00 GMT+0300 (Eastern European Summer Time)");
 let countdownActive;
 
 
@@ -44,9 +39,10 @@ function updateDOM() {
         // if countdown complete show complete
 
         if (distance < 0) {
-            countdownEl.hidden = true;
-            clearInterval(countdownActive);
-            completeElInfo.textContent = `Control Room solutions day finished on ${countdownDate}`;
+            clock.style.display = "none";
+            timeElementsBtn.style.display = "none";
+            regBtn.style.display = "none";
+            completeElInfo.textContent = `Event has started!`;
             completeEl.hidden = false;
         } else {
             // else show countdown in progress
@@ -57,13 +53,13 @@ function updateDOM() {
             timeElements[2].textContent = `${minutes}`;
             timeElements[3].textContent = `${seconds}`;
             completeEl.hidden = true;
-            countdownEl.hidden = false;
+
         }
     }, second);
 }
 
 
 
-// onload, check localStorage
+// onload
 updateDOM();
 
