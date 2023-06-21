@@ -10,58 +10,66 @@
 </head>
 
 <body>
-    <div class="logos"><img class="samsung" src="Samsung_logo.svg" alt=""><img class="signtech" src="signtech_logo.svg"
-            alt=""></div>
-    <!-- container -->
-    <div class="container">
 
-        <!-- countdown -->
-        <div class="countdown" id="countdown">
-            <h1 id="countdown-title">Samsung / Signtech Control Room solutions day</h1>
-            <ul>
-                <li><span></span>Days</li>
-                <li><span></span>Hours</li>
-                <li><span></span>Minutes</li>
-                <li><span></span>Seconds</li>
-            </ul>
+    <div class="section-left">
+        <div class="logos"><img class="samsung" src="Samsung_logo.svg" alt=""><img class="signtech"
+                src="signtech_logo.svg" alt=""></div>
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Agenda</th>
+            </tr>
+            <tr>
+                <td>9:00-9:30</td>
+                <td>Arrival</td>
+            </tr>
+            <tr>
+                <td>9:30 - 12:30</td>
+                <td>Welcome from Samsung/Signtech<br>Next Generation control rooms - Data and AI<br>Ergonomics and
+                    health in control room<br>Samsung MicroLED for your command and control center<br>Samsung Monitors
+                    for consoles</td>
+            </tr>
+            <tr>
+                <td>Lunch break</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>13:30 - 16:30</td>
+                <td>Vuwall solutions<br>Signtech services and mounting solutions<br>Samsung Aircon solutions for
+                    CC<br>Snacks and networking</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-right"><!-- container -->
+        <div class="container">
 
-        </div> <add-to-calendar-button name="Control room solution day" description="Add to your calendar"
-            startDate="2023-10-25" startTime="09:00" endDate="2023-10-25" endTime="17:30" timeZone="Europe/Riga"
-            location="ATTA CENTRE, Krasta iela 60, Latgales priekšpilsēta, Rīga, LV-1003, Latvija"
-            options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'" listStyle="overlay"
-            buttonStyle="3d" size="5">
-            <!-- Complete -->
-            <div class="complete" id="complete" hidden>
-                <h1 class="complete-title">Countdown complete!</h1>
+            <!-- countdown -->
+            <div class="countdown" id="countdown">
+                <h1 id="countdown-title">Samsung / Signtech Control Room solutions day</h1>
+                <ul>
+                    <li><span></span>Days</li>
+                    <li><span></span>Hours</li>
+                    <li><span></span>Minutes</li>
+                    <li><span></span>Seconds</li>
+                </ul>
 
-            </div>
+            </div> <add-to-calendar-button name="Control room solution day" description="Add to your calendar"
+                startDate="2023-10-25" startTime="09:00" endDate="2023-10-25" endTime="17:30" timeZone="Europe/Riga"
+                location="ATTA CENTRE, Krasta iela 60, Latgales priekšpilsēta, Rīga, LV-1003, Latvija"
+                options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'" listStyle="overlay"
+                buttonStyle="3d" size="5">
+                <!-- Complete -->
+                <div class="complete" id="complete" hidden>
+                    <h1 class="complete-title">Countdown complete!</h1>
+
+                </div>
+
+        </div>
+        <h3>AI generated image</h3>
     </div>
 
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Agenda</th>
-        </tr>
-        <tr>
-            <td>9:00-9:30</td>
-            <td>Arrival</td>
-        </tr>
-        <tr>
-            <td>9:30 - 12:30</td>
-            <td>Welcome from Samsung/Signtech<br>Next Generation control rooms - Data and AI<br>Ergonomics and
-                health in control room<br>Samsung MicroLED for your command and control center<br>Samsung Monitors
-                for consoles</td>
-        </tr>
-        <tr>
-            <td>Lunch break</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>13:30 - 16:30</td>
-            <td>Vuwall solutions<br>Signtech services and mounting solutions<br>Samsung Aircon solutions for
-                CC<br>Snacks and networking</td>
-        </tr>
-    </table>
+
+
 
     <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
