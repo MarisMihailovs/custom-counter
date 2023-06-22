@@ -72,7 +72,7 @@ function updateDOM() {
 }
 
 regBtn.addEventListener('click', showModal);
-window.addEventListener('click', removeModal);
+modal.addEventListener('click', removeModal);
 // onload
 updateDOM();
 
