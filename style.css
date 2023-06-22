@@ -22,7 +22,7 @@ div.logos {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 20px;
+  margin: 10px;
 }
 
 .section-left {
@@ -31,7 +31,7 @@ div.logos {
   justify-content: flex-start;
   align-items: center;
   width: 50vw;
-  height: 95vh;
+  height: 100vh;
 }
 
 .section-right {
@@ -84,6 +84,14 @@ h1 {
   margin-bottom: 10px;
 }
 
+h1.eventTitle {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: white;
+}
+
 h1#countdown-title {
   font-size: 25px;
   width: 80%;
@@ -96,7 +104,7 @@ p {
 
 .Register {
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #bdbdbd;
   border: 1px solid #d2d2d2;
   border-radius: 6px;
   color: #333;
@@ -107,7 +115,7 @@ p {
   font-weight: 600;
   justify-content: center;
   line-height: 1.5em;
-  margin: 15px;
+  margin: 10px;
   max-width: 350px;
   min-width: 10em;
   padding: 0.65em 1em;
@@ -123,7 +131,6 @@ p {
 
 .Register:hover {
   background-color: white;
-  transform: translateY(-1px);
 }
 
 /* Countdown */
@@ -174,7 +181,7 @@ table {
   font-size: small;
   border-collapse: collapse;
   width: 60%;
-  margin: 5%;
+  margin: 10px;
 }
 
 th,
