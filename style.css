@@ -133,6 +133,90 @@ p {
   background-color: white;
 }
 
+/* modal */
+/* modal styling */
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.show-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  max-width: 95%;
+  width: 500px;
+  animation: modalopen 1s;
+}
+
+/* form styling */
+
+form {
+  width: 50%;
+  align-items: center;
+  background-color: white;
+}
+
+.form-group {
+  height: 65px;
+}
+
+label {
+  position: relative;
+  bottom: 3px;
+}
+
+input {
+  width: 100%;
+  height: 34px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 50px;
+  width: 70%;
+  font-family: Cairo, sans-serif;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
 /* Countdown */
 
 ul {

@@ -1,6 +1,10 @@
 
 const clock = document.querySelector('.counter');
 const regBtn = document.querySelector('.Register');
+
+const modal = document.getElementById('modal');
+const modalShow = document.getElementById('show-modal');
+
 const timeElements = document.querySelectorAll('span');
 const timeElementsBtn = document.querySelector('add-to-calendar-button');
 
@@ -21,6 +25,15 @@ const day = hour * 24;
 const today1 = new Date();
 const today = new Date().toISOString().split('T')[0];
 
+function showModal() {
+    modal.classList.add('show-modal');
+}
+
+function removeModal(e) {
+    if (e.target == modal) {
+        modal.classList.remove('show-modal');
+    };
+}
 
 // populate countdown / complete ui
 function updateDOM() {
@@ -58,8 +71,8 @@ function updateDOM() {
     }, second);
 }
 
-
-
+regBtn.addEventListener('click', showModal);
+window.addEventListener('click', removeModal);
 // onload
 updateDOM();
 
