@@ -5,6 +5,7 @@ const regBtn = document.querySelector('.Register');
 const modal = document.getElementById('modal');
 const modalShow = document.getElementById('show-modal');
 
+const form = document.getElementById('form');
 const timeElements = document.querySelectorAll('span');
 const timeElementsBtn = document.querySelector('add-to-calendar-button');
 
@@ -25,6 +26,37 @@ const day = hour * 24;
 const today1 = new Date();
 const today = new Date().toISOString().split('T')[0];
 
+
+// form submition
+
+function validateForm() {
+    // using contraint API 
+    isValid = form.checkValidity();
+
+    if (!isValid) {
+        // style main message for an error
+        message.textContent = 'Please fill out all fields';
+        message.style.color = 'red';
+        messageContainer.style.borderColor = "red";
+        return;
+    }
+
+}
+
+function storeFormData() {
+    message.textContent = 'Thank you! we will contact you soon!';
+}
+
+function processFormData(e) {
+    //    validat form 
+    validateForm();
+    // submit data if valid
+    if (isValid) {
+
+    }
+}
+
+// modal for signup form
 function showModal() {
     modal.classList.add('show-modal');
 }
@@ -34,6 +66,8 @@ function removeModal(e) {
         modal.classList.remove('show-modal');
     };
 }
+
+form.addEventListener('submit', processFormData);
 
 // populate countdown / complete ui
 function updateDOM() {
