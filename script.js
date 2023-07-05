@@ -62,7 +62,7 @@ function registerCheck() {
         regMessage.innerText = "You are registered!"
         sectionLeft.appendChild(regMessage);
     } else {
-        console.log(e);
+        console.log(isRegistered);
         console.log("not registered");
     }
 }
