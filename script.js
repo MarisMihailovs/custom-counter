@@ -26,7 +26,7 @@ const day = hour * 24;
 const today1 = new Date();
 const today = new Date().toISOString().split('T')[0];
 
-let isRegistered = false;
+let isRegistered;
 
 // form submition
 
@@ -55,8 +55,8 @@ function processFormData(e) {
 }
 
 function registerCheck() {
-    const e = localStorage.getItem("isRegistered");
-    if (e === "true") {
+    isRegistered = localStorage.getItem("isRegistered");
+    if (isRegistered === "true") {
         regBtn.style.display = "none";
         const regMessage = document.createElement("h1");
         regMessage.innerText = "You are registered!"
