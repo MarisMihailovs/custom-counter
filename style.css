@@ -78,14 +78,14 @@ img.samsung {
 
 
 h1 {
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 h1.eventTitle {
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   margin-top: 0;
   margin-bottom: 10px;
@@ -164,17 +164,25 @@ p {
 /* form styling */
 
 form {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 5px;
+  justify-content: center;
   align-items: center;
   background-color: white;
 }
 
 .form-group {
-  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
 }
 
 label {
   position: relative;
+  margin: 10px;
   bottom: 3px;
 }
 
@@ -200,9 +208,9 @@ input:invalid {
 button {
   cursor: pointer;
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  background: rgba(255, 255, 255, 0);
-  border: 1px solid white;
+  color: rgb(30, 29, 29);
+  background: #bdbdbd;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   height: 50px;
   width: 70%;
@@ -213,7 +221,7 @@ button {
 }
 
 button:hover {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(162, 185, 239, 0.5);
 }
 
 
@@ -243,6 +251,25 @@ li span {
   animation: complete 4s infinite;
 }
 
+table {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.35);
+  font-size: small;
+  margin: 10px;
+}
+
+tbody {
+  border-radius: 5px;
+}
+
+th,
+td {
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+}
+
 @keyframes complete {
   0% {
     scale: 1;
@@ -260,20 +287,6 @@ li span {
 
 /* agenda table */
 
-table {
-  background-color: rgba(255, 255, 255, 0.35);
-  font-size: small;
-  border-collapse: collapse;
-  width: 60%;
-  margin: 10px;
-}
-
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  color: white;
-}
 
 
 /* Media Query: Large Smartphone (Vertical) */
