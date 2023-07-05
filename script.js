@@ -56,7 +56,7 @@ function processFormData(e) {
 
 function registerCheck() {
     const e = localStorage.getItem("isRegistered");
-    if (e === true) {
+    if (e === "true") {
         regBtn.style.display = "none";
         const regMessage = document.createElement("h1");
         regMessage.innerText = "You are registered!"
