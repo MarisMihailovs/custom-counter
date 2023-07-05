@@ -61,6 +61,7 @@ function registerCheck() {
         const regMessage = document.createElement("h1");
         regMessage.innerText = "You are registered!";
         regMessage.style.color = "white";
+        regMessage.style.padding = "15px";
         sectionLeft.appendChild(regMessage);
     } else {
         console.log(isRegistered);
