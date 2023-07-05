@@ -1,6 +1,7 @@
-
+const sectionLeft = document.querySelector('.section-left');
 const clock = document.querySelector('.counter');
 const regBtn = document.querySelector('.Register');
+const submitBtn = document.querySelector('.submitBtn');
 
 const modal = document.getElementById('modal');
 const modalShow = document.getElementById('show-modal');
@@ -16,7 +17,6 @@ let countdownDate = '';
 let countdownValue = new Date("Wed OCT 25 2023 09:30:00 GMT+0300 (Eastern European Summer Time)");
 let countdownActive;
 
-
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -26,6 +26,7 @@ const day = hour * 24;
 const today1 = new Date();
 const today = new Date().toISOString().split('T')[0];
 
+let isRegistered = false;
 
 // form submition
 
@@ -34,11 +35,7 @@ function validateForm() {
     isValid = form.checkValidity();
 
     if (!isValid) {
-        // style main message for an error
-        message.textContent = 'Please fill out all fields';
-        message.style.color = 'red';
-        messageContainer.style.borderColor = "red";
-        return;
+        submitBtn.innerText = "Please fillout form correctly!"
     }
 
 }
@@ -48,11 +45,25 @@ function storeFormData() {
 }
 
 function processFormData(e) {
-    //    validat form 
+    //    validate form 
     validateForm();
     // submit data if valid
     if (isValid) {
+        isRegistered = "true";
+        localStorage.setItem("isRegistered", JSON.stringify(isRegistered));
+    }
+}
 
+function registerCheck() {
+    const e = localStorage.getItem("isRegistered");
+    if (e === true) {
+        regBtn.style.display = "none";
+        const regMessage = document.createElement("h1");
+        regMessage.innerText = "You are registered!"
+        sectionLeft.appendChild(regMessage);
+    } else {
+        console.log(e);
+        console.log("not registered");
     }
 }
 
@@ -71,8 +82,12 @@ form.addEventListener('submit', processFormData);
 
 // populate countdown / complete ui
 function updateDOM() {
+    // check if registered
+    registerCheck();
+
     console.log(today1);
     console.log(countdownValue);
+
     countdownActive = setInterval(() => {
         const now = new Date().getTime();
         const distance = countdownValue - now;
