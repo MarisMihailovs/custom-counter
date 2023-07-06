@@ -32,6 +32,8 @@ div.logos {
   align-items: center;
   width: 50vw;
   height: 100vh;
+  background: bottom no-repeat;
+  background-image: url(HexagonPattern.svg);
 }
 
 .section-right {
@@ -43,8 +45,7 @@ div.logos {
   height: 95vh;
   background-image: url(control_room.svg);
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right;
+  background-position: center;
 }
 
 img.signtech {
