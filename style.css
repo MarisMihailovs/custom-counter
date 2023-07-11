@@ -99,6 +99,10 @@ h1#countdown-title {
   margin: auto;
 }
 
+h2 {
+  color: whitesmoke;
+}
+
 p {
   color: white;
 }
