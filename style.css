@@ -91,6 +91,7 @@ h1.eventTitle {
   margin-top: 0;
   margin-bottom: 10px;
   color: white;
+  animation: 1s ease-out fadein_bottom;
 }
 
 h1#countdown-title {
@@ -101,6 +102,7 @@ h1#countdown-title {
 
 h2 {
   color: whitesmoke;
+  animation: 1s ease-out fadein_bottom;
 }
 
 p {
@@ -261,6 +263,7 @@ table {
   background-color: rgba(255, 255, 255, 0.35);
   font-size: small;
   margin: 10px;
+  animation: 1s ease-out fadein_bottom;
 }
 
 tbody {
@@ -288,6 +291,18 @@ td {
     scale: 1;
   }
 
+}
+
+@keyframes fadein_bottom {
+  from {
+    transform: translatey(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 /* agenda table */
